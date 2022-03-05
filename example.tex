@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage{pipetex}
+\pipetexcommand{perl}
+
+\begin{document}
+
+  The contents of the \texttt{pipetex} environment will be
+  passed as STDIN to whatever command you specified in
+  \texttt{\textbackslash pipetexcommand}.
+  The STDOUT output of the command will be rendered as \LaTeX
+  at this point in the document:
+
+  \begin{center}
+    \begin{pipetex}
+      printf '\framebox{%s}', $_ for 1 .. 20;
+    \end{pipetex}
+  \end{center}
+  
+  In these examples the contents of the environment are 
+  sent to \texttt{perl}.  Here is another example:
+ 
+  \begin{center}
+    \begin{pipetex}
+      my @fib = (0,1);
+      for my $i (2 .. 18) {
+        $fib[$i] = $fib[$i-1] + $fib[$i-2];
+      }
+      print join ", ", @fib;
+    \end{pipetex}
+  \end{center}
+  
+  You can also override the default command by 
+  passing an optional argument to the environment,
+  like this:
+  
+  \begin{center}
+    \begin{pipetex}[sort]
+      every
+      good
+      boy
+      deserves
+      fudge
+    \end{pipetex}
+  \end{center}
+
+  When the command gives an error (as indicated by
+  its return code), the contents of STDERR are rendered
+  instead:
+
+  \begin{center}
+    \begin{pipetex}
+        $this = 'is';
+        nonsensical "Perl"
+    \end{pipetex}
+  \end{center}
+
+  
+\end{document}

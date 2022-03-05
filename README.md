@@ -59,7 +59,7 @@ You can use this to include some domain-specific language (DSL) inline with your
   \end{center}
   
   When the command gives an error (as indicated by
-  its return code), the error message is rendered
+  its return code), the contents of STDERR are rendered
   instead:
 
   \begin{center}
