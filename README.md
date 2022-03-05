@@ -75,7 +75,7 @@ You can use this to include some domain-specific language (DSL) inline with your
 
 Result:
 
-<img width="713" alt="image" src="https://user-images.githubusercontent.com/4512530/156871876-a73dad16-0092-48ef-822b-c5730edc9fc5.png">
+<img width="788" alt="image" src="https://user-images.githubusercontent.com/4512530/156872374-9d48f2db-9cb6-425c-bc65-fb5df9ef5e90.png">
 
 ### Other features
 
