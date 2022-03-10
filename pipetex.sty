@@ -80,27 +80,27 @@
 \@xpipetex}
 
 \def\endpipetex{%
-\endgroup
-\immediate\closeout\@out
-\@writemodule
-\immediate\write18{\@pipetexcmd < \@pipetexdir/\@outname.pipe > \@pipetexdir/\@outname.pipe.out 2> \@pipetexdir/\@outname.pipe.err; echo $? > \@pipetexdir/\@outname.pipe.rc}
-\immediate\input\@outname.pipe.out
-
+\endgroup%
+\immediate\closeout\@out%
+\@writemodule%
+\immediate\write18{\@pipetexcmd < \@pipetexdir/\@outname.pipe > \@pipetexdir/\@outname.pipe.out 2> \@pipetexdir/\@outname.pipe.err; echo $? > \@pipetexdir/\@outname.pipe.rc}%
+\immediate\input\@outname.pipe.out%
+%
 % Read the return code of the executed script.
-\immediate\openin\@retcode=\@outname.pipe.rc
-\immediate\read\@retcode to \rc
-\immediate\closein\@retcode
-
+\immediate\openin\@retcode=\@outname.pipe.rc%
+\immediate\read\@retcode to \rc%
+\immediate\closein\@retcode%
+%
 % If the return code isn't zero then include
 % the traceback.
 \ifnumequal{\rc}{0}{}{%
-    \begingroup
-        \color{red}
-        \verbatiminput{\@outname.pipe.err}
-    \endgroup
+    \begingroup%
+        \color{red}%
+        \verbatiminput{\@outname.pipe.err}%
+    \endgroup%
 }
-
-\immediate\stepcounter{@PipetexEnvironmentCounter}
+%
+\immediate\stepcounter{@PipetexEnvironmentCounter}%
 }
 
 \def\@writemodule{%
